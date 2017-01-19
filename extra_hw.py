@@ -15,23 +15,15 @@ desc по убыванию.
 """""""""
 
 
-def ask_sort_list(user_list):
+def sort_list(user_list, sorting_order):
     for number in range(len(user_list)):
         for second_number in range(number + 1, len(user_list)):
-            if user_list[number] > user_list[second_number]:
-                temp = user_list[number]
-                user_list[number] = user_list[second_number]
-                user_list[second_number] = temp
-    return user_list
-
-
-def desk_sort_list(user_list):
-    for number in range(0, len(user_list)):
-        for second_number in range(1, len(user_list)):
-            if user_list[number] < user_list[second_number]:
-                temp = user_list[number]
-                user_list[number] = user_list[second_number]
-                user_list[second_number] = temp
+            if sorting_order == "1":
+                if user_list[number] > user_list[second_number]:
+                    user_list[number], user_list[second_number] = user_list[second_number], user_list[number]
+            else:
+                if user_list[number] < user_list[second_number]:
+                    user_list[number], user_list[second_number] = user_list[second_number], user_list[number]
     return user_list
 
 
@@ -59,9 +51,9 @@ def return_list_of_numbers():
                              "- по возростанию, введите 1\n"
                              "- по убыванию, введите 2\n"
                              ":")
-            if ask_sort == "1":
-                print(ask_sort_list(list_of_odds_numbers), ask_sort_list(list_of_evens_numbers))
-            else:
-                print(desk_sort_list(list_of_odds_numbers), desk_sort_list(list_of_evens_numbers))
+            print("list of evens numbers:", sort_list(list_of_evens_numbers, ask_sort), "\n"
+                  "list of odds numbers:", sort_list(list_of_odds_numbers, ask_sort))
 
-return_list_of_numbers()
+
+if __name__ == "__main__":
+    return_list_of_numbers()
