@@ -44,6 +44,3 @@ def division(a, b):
     return a / b
 
 
-print(summ_(1, 1))
-# print(substr(4, 2))
-# print(mul(2, 2))
