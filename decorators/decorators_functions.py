@@ -4,6 +4,7 @@ def check_data_type(allowed_data_types=None):
     def decorator(func):
         def wrapper(a, b):
             wrapper.__name__ = func.__name__
+            print(wrapper.__name__)
             if not isinstance(a, allowed_data_types):
                 raise ValueError("invalid data type")
             elif not isinstance(b, allowed_data_types):
